@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<h3>See console for outputs</h3>
+<script>
+    function demo1() {
+        fetch('https://api.punkapi.com/v2/beers/16456464654')
+            .then((response) => {
+                if (!response.ok) {
+                    return Promise.reject("Ups Not Found " + response.status)
+                }
+                return response.json();
+            })
+            .then(function (data) {
+                console.log(data);
+            })
+            .catch(e => console.error(e))
+    }
+
+    async function hentData() {
+        const promise =  await fetch('https://api.punkapi.com/v2/beers/1')
+        console.log(promise.status)
+        return promise.json()
+        fetch(url).then(handleErrors)
+    }
+
+    async function demo2() {
+        const data = await hentData()
+        console.log(data)
+    }
+
+    demo2()
+
+</script>
+</body>
+
+</html>
+
